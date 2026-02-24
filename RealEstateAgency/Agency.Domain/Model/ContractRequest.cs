@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Agency.Domain.Model;
 
@@ -14,9 +14,19 @@ public class ContractRequest
     public required int Id { get; set; }
 
     /// <summary>
+    /// Идентификатор контрагента
+    /// </summary>
+    public int CounterpartyId { get; set; }
+
+    /// <summary>
     /// Контрагент, связанный с заявкой
     /// </summary>
     public required Counterparty Counterparty { get; set; }
+
+    /// <summary>
+    /// Идентификатор объекта недвижимости
+    /// </summary>
+    public int RealEstateId { get; set; }
 
     /// <summary>
     /// Объект недвижимости, связанный с заявкой

@@ -1,4 +1,4 @@
-﻿using Agency.Domain.Model;
+using Agency.Domain.Model;
 
 namespace Agency.Domain.Data;
 
@@ -258,7 +258,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 201,
+                    CounterpartyId = 1,
                     Counterparty = Counterparties[0], // Иванов
+                    RealEstateId = 101,
                     RealEstate = RealEstates[0], // Квартира на Ленина, 25
                     ContractRequestType = ContractRequestType.Sale,
                     Amount = 12500000,
@@ -268,7 +270,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 202,
+                    CounterpartyId = 2,
                     Counterparty = Counterparties[1], // Петрова
+                    RealEstateId = 102,
                     RealEstate = RealEstates[1], // Квартира на Ленина, 42
                     ContractRequestType = ContractRequestType.Sale,
                     Amount = 9500000,
@@ -278,7 +282,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 203,
+                    CounterpartyId = 3,
                     Counterparty = Counterparties[2], // Сидоров
+                    RealEstateId = 103,
                     RealEstate = RealEstates[2], // Дом в Петрово
                     ContractRequestType = ContractRequestType.Purchase,
                     Amount = 18500000,
@@ -288,7 +294,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 204,
+                    CounterpartyId = 1,
                     Counterparty = Counterparties[0], // Иванов (снова)
+                    RealEstateId = 104,
                     RealEstate = RealEstates[3], // Участок
                     ContractRequestType = ContractRequestType.Purchase,
                     Amount = 3500000,
@@ -298,7 +306,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 205,
+                    CounterpartyId = 4,
                     Counterparty = Counterparties[3], // Козлова
+                    RealEstateId = 105,
                     RealEstate = RealEstates[4], // Коммерческое на Тверской
                     ContractRequestType = ContractRequestType.Purchase,
                     Amount = 45000000,
@@ -308,7 +318,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 206,
+                    CounterpartyId = 5,
                     Counterparty = Counterparties[4], // Смирнов
+                    RealEstateId = 106,
                     RealEstate = RealEstates[5], // Гараж
                     ContractRequestType = ContractRequestType.Purchase,
                     Amount = 1200000,
@@ -318,7 +330,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 207,
+                    CounterpartyId = 6,
                     Counterparty = Counterparties[5], // Михайлова
+                    RealEstateId = 107,
                     RealEstate = RealEstates[6], // Квартира на Невском, 12
                     ContractRequestType = ContractRequestType.Sale,
                     Amount = 16500000,
@@ -328,7 +342,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 208,
+                    CounterpartyId = 3,
                     Counterparty = Counterparties[2], // Сидоров (снова)
+                    RealEstateId = 108,
                     RealEstate = RealEstates[7], // Квартира на Невском, 15
                     ContractRequestType = ContractRequestType.Purchase,
                     Amount = 11000000,
@@ -338,7 +354,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 209,
+                    CounterpartyId = 7,
                     Counterparty = Counterparties[6], // Федоров
+                    RealEstateId = 109,
                     RealEstate = RealEstates[8], // Коммерческое на Рубинштейна
                     ContractRequestType = ContractRequestType.Sale,
                     Amount = 28000000,
@@ -348,7 +366,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 210,
+                    CounterpartyId = 8,
                     Counterparty = Counterparties[7], // Васильева
+                    RealEstateId = 110,
                     RealEstate = RealEstates[9], // Дом в Романовке
                     ContractRequestType = ContractRequestType.Purchase,
                     Amount = 9500000,
@@ -358,7 +378,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 211,
+                    CounterpartyId = 9,
                     Counterparty = Counterparties[8], // Николаев
+                    RealEstateId = 101,
                     RealEstate = RealEstates[0], // Квартира на Ленина, 25
                     ContractRequestType = ContractRequestType.Purchase,
                     Amount = 12500000,
@@ -368,7 +390,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 212,
+                    CounterpartyId = 2,
                     Counterparty = Counterparties[1], // Петрова (снова)
+                    RealEstateId = 103,
                     RealEstate = RealEstates[2], // Дом в Петрово
                     ContractRequestType = ContractRequestType.Purchase,
                     Amount = 18000000,
@@ -378,7 +402,9 @@ public class DataSeeder
                 new ContractRequest
                 {
                     Id = 213,
+                    CounterpartyId = 10,
                     Counterparty = Counterparties[9], // Александрова
+                    RealEstateId = 102,
                     RealEstate = RealEstates[1], // Квартира на Ленина, 42
                     ContractRequestType = ContractRequestType.Purchase,
                     Amount = 9200000,
