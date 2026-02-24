@@ -7,11 +7,18 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Aspire.MongoDB.Driver" Version="13.0.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.71.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.71.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Agency.Application\Agency.Application.csproj" />
     <ProjectReference Include="..\Agency.Infrastructure.EfCore\Agency.Infrastructure.EfCore.csproj" />
     <ProjectReference Include="..\Agency.ServiceDefaults\Agency.ServiceDefaults.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="..\Agency.Application.Contracts\Protos\ContractRequest.proto" GrpcServices="Client">
+      <Link>Protos\ContractRequest.proto</Link>
+    </Protobuf>
   </ItemGroup>
 </Project>

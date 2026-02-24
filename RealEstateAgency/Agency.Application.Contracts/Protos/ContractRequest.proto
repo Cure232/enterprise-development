@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option csharp_namespace = "Agency.Application.Contracts.Protos";
+
+message ContractRequestGenerationRequest {
+  string request_id = 1;
+
+  int32 count = 2;
+
+  int32 batch_size = 3;
+}
+
+message ContractRequestCreateUpdateDtoMessage {
+  int32 counterparty_id = 1;
+  int32 real_estate_id = 2;
+  int32 contract_request_type = 3;
+  double amount = 4;
+  string created_date = 5;
+  string status = 6;
+}
+
+message ContractRequestBatchStreamMessage {
+  string request_id = 1;
+  repeated ContractRequestCreateUpdateDtoMessage contract_requests = 2;
+  bool is_final = 3;
+}
+
+service ContractRequestGeneratorGrpcService {
+  rpc ContractRequestStream (stream ContractRequestGenerationRequest) returns (stream ContractRequestBatchStreamMessage);
+}

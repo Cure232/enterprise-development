@@ -13,5 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Agency.Api.Host\Agency.Api.Host.csproj" />
+    <ProjectReference Include="..\Agency.Generator.Grpc.Host\Agency.Generator.Grpc.Host.csproj" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,9 @@
+using Agency.Api.Host.Grpc;
 using Agency.Application;
 using Agency.Application.Contracts;
 using Agency.Application.Contracts.ContractRequests;
 using Agency.Application.Contracts.Counterparties;
+using Agency.Application.Contracts.Protos;
 using Agency.Application.Contracts.RealEstates;
 using Agency.Application.Services;
 using Agency.Domain;
@@ -20,6 +22,7 @@ builder.Services.AddSingleton<DataSeeder>();
 builder.Services.AddAutoMapper(config =>
 {
     config.AddProfile(new AgencyProfile());
+    config.AddProfile(new AgencyGrpcProfile());
 });
 
 builder.Services.AddTransient<IRepository<Counterparty, int>, CounterpartyRepository>();
@@ -50,6 +53,22 @@ builder.Services.AddDbContext<AgencyDbContext>((services, o) =>
     var db = services.GetRequiredService<IMongoDatabase>();
     o.UseMongoDB(db.Client, db.DatabaseNamespace.DatabaseName);
 });
+
+builder.Services.AddGrpc(options =>
+{
+    options.EnableDetailedErrors = builder.Environment.IsDevelopment();
+});
+
+builder.Services.AddGrpcClient<ContractRequestGeneratorGrpcService.ContractRequestGeneratorGrpcServiceClient>(o =>
+{
+    var addr = builder.Configuration["ContractRequestGenerator:GrpcAddress"]
+               ?? throw new InvalidOperationException("ContractRequestGenerator:GrpcAddress is not configured");
+    o.Address = new Uri(addr);
+});
+
+builder.Services.AddMemoryCache();
+
+builder.Services.AddHostedService<AgencyGrpcClient>();
 
 var app = builder.Build();
 app.MapDefaultEndpoints();
