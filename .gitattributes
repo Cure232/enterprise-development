@@ -1,0 +1,5 @@
+* text=auto
+*.cs text encoding=UTF-8
+*.json text encoding=UTF-8
+*.xml text encoding=UTF-8
+*.config text encoding=UTF-8

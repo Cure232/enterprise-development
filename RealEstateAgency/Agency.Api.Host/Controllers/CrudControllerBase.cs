@@ -1,14 +1,14 @@
-using Agency.Application.Contracts;
+п»їusing Agency.Application.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Agency.Api.Host.Controllers;
 
 /// <summary>
-/// Базовый CRUD контроллер, предоставляющий стандартные операции для работы с сущностями
+/// Р‘Р°Р·РѕРІС‹Р№ CRUD РєРѕРЅС‚СЂРѕР»Р»РµСЂ, РїСЂРµРґРѕСЃС‚Р°РІР»СЏСЋС‰РёР№ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Рµ РѕРїРµСЂР°С†РёРё РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ СЃСѓС‰РЅРѕСЃС‚СЏРјРё
 /// </summary>
-/// <typeparam name="TDto">Тип DTO для чтения/получения данных сущности</typeparam>
-/// <typeparam name="TCreateUpdateDto">Тип DTO для создания и обновления сущности</typeparam>
-/// <typeparam name="TKey">Тип идентификатора сущности (int, Guid, long и т.д.)</typeparam>
+/// <typeparam name="TDto">РўРёРї DTO РґР»СЏ С‡С‚РµРЅРёСЏ/РїРѕР»СѓС‡РµРЅРёСЏ РґР°РЅРЅС‹С… СЃСѓС‰РЅРѕСЃС‚Рё</typeparam>
+/// <typeparam name="TCreateUpdateDto">РўРёРї DTO РґР»СЏ СЃРѕР·РґР°РЅРёСЏ Рё РѕР±РЅРѕРІР»РµРЅРёСЏ СЃСѓС‰РЅРѕСЃС‚Рё</typeparam>
+/// <typeparam name="TKey">РўРёРї РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂР° СЃСѓС‰РЅРѕСЃС‚Рё (int, Guid, long Рё С‚.Рґ.)</typeparam>
 [Route("api/[controller]")]
 [ApiController]
 public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
@@ -19,12 +19,12 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     where TKey : struct
 {
     /// <summary>
-    /// Создает новую сущность
+    /// РЎРѕР·РґР°РµС‚ РЅРѕРІСѓСЋ СЃСѓС‰РЅРѕСЃС‚СЊ
     /// </summary>
-    /// <param name="newDto">Данные для создания новой сущности</param>
-    /// <returns>Созданная сущность с присвоенным идентификатором</returns>
-    /// <response code="201">Сущность успешно создана</response>
-    /// <response code="500">Внутренняя ошибка сервера</response>
+    /// <param name="newDto">Р”Р°РЅРЅС‹Рµ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РЅРѕРІРѕР№ СЃСѓС‰РЅРѕСЃС‚Рё</param>
+    /// <returns>РЎРѕР·РґР°РЅРЅР°СЏ СЃСѓС‰РЅРѕСЃС‚СЊ СЃ РїСЂРёСЃРІРѕРµРЅРЅС‹Рј РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј</returns>
+    /// <response code="201">РЎСѓС‰РЅРѕСЃС‚СЊ СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅР°</response>
+    /// <response code="500">Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° СЃРµСЂРІРµСЂР°</response>
     [HttpPost]
     [ProducesResponseType(201)]
     [ProducesResponseType(500)]
@@ -44,14 +44,14 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     }
 
     /// <summary>
-    /// Обновляет существующую сущность по идентификатору
+    /// РћР±РЅРѕРІР»СЏРµС‚ СЃСѓС‰РµСЃС‚РІСѓСЋС‰СѓСЋ СЃСѓС‰РЅРѕСЃС‚СЊ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
     /// </summary>
-    /// <param name="id">Идентификатор обновляемой сущности</param>
-    /// <param name="newDto">Новые данные для сущности</param>
-    /// <returns>Обновленная сущность</returns>
-    /// <response code="200">Сущность успешно обновлена</response>
-    /// <response code="404">Сущность с указанным идентификатором не найдена</response>
-    /// <response code="500">Внутренняя ошибка сервера</response>
+    /// <param name="id">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕР±РЅРѕРІР»СЏРµРјРѕР№ СЃСѓС‰РЅРѕСЃС‚Рё</param>
+    /// <param name="newDto">РќРѕРІС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ СЃСѓС‰РЅРѕСЃС‚Рё</param>
+    /// <returns>РћР±РЅРѕРІР»РµРЅРЅР°СЏ СЃСѓС‰РЅРѕСЃС‚СЊ</returns>
+    /// <response code="200">РЎСѓС‰РЅРѕСЃС‚СЊ СѓСЃРїРµС€РЅРѕ РѕР±РЅРѕРІР»РµРЅР°</response>
+    /// <response code="404">РЎСѓС‰РЅРѕСЃС‚СЊ СЃ СѓРєР°Р·Р°РЅРЅС‹Рј РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј РЅРµ РЅР°Р№РґРµРЅР°</response>
+    /// <response code="500">Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° СЃРµСЂРІРµСЂР°</response>
     [HttpPut("{id}")]
     [ProducesResponseType(200)]
     [ProducesResponseType(404)]
@@ -75,13 +75,13 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     }
 
     /// <summary>
-    /// Удаляет сущность по идентификатору
+    /// РЈРґР°Р»СЏРµС‚ СЃСѓС‰РЅРѕСЃС‚СЊ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
     /// </summary>
-    /// <param name="id">Идентификатор удаляемой сущности</param>
-    /// <returns>Статус выполнения операции</returns>
-    /// <response code="200">Сущность успешно удалена</response>
-    /// <response code="204">Сущность не найдена (ничего не удалено)</response>
-    /// <response code="500">Внутренняя ошибка сервера</response>
+    /// <param name="id">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СѓРґР°Р»СЏРµРјРѕР№ СЃСѓС‰РЅРѕСЃС‚Рё</param>
+    /// <returns>РЎС‚Р°С‚СѓСЃ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёРё</returns>
+    /// <response code="200">РЎСѓС‰РЅРѕСЃС‚СЊ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°</response>
+    /// <response code="204">РЎСѓС‰РЅРѕСЃС‚СЊ РЅРµ РЅР°Р№РґРµРЅР° (РЅРёС‡РµРіРѕ РЅРµ СѓРґР°Р»РµРЅРѕ)</response>
+    /// <response code="500">Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° СЃРµСЂРІРµСЂР°</response>
     [HttpDelete("{id}")]
     [ProducesResponseType(200)]
     [ProducesResponseType(204)]
@@ -101,11 +101,11 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     }
 
     /// <summary>
-    /// Получает список всех сущностей
+    /// РџРѕР»СѓС‡Р°РµС‚ СЃРїРёСЃРѕРє РІСЃРµС… СЃСѓС‰РЅРѕСЃС‚РµР№
     /// </summary>
-    /// <returns>Список всех сущностей</returns>
-    /// <response code="200">Успешное получение списка</response>
-    /// <response code="500">Внутренняя ошибка сервера</response>
+    /// <returns>РЎРїРёСЃРѕРє РІСЃРµС… СЃСѓС‰РЅРѕСЃС‚РµР№</returns>
+    /// <response code="200">РЈСЃРїРµС€РЅРѕРµ РїРѕР»СѓС‡РµРЅРёРµ СЃРїРёСЃРєР°</response>
+    /// <response code="500">Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° СЃРµСЂРІРµСЂР°</response>
     [HttpGet]
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
@@ -124,13 +124,13 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     }
 
     /// <summary>
-    /// Получает сущность по идентификатору
+    /// РџРѕР»СѓС‡Р°РµС‚ СЃСѓС‰РЅРѕСЃС‚СЊ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
     /// </summary>
-    /// <param name="id">Идентификатор запрашиваемой сущности</param>
-    /// <returns>Сущность с указанным идентификатором</returns>
-    /// <response code="200">Сущность найдена</response>
-    /// <response code="404">Сущность с указанным идентификатором не найдена</response>
-    /// <response code="500">Внутренняя ошибка сервера</response>
+    /// <param name="id">РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РїСЂР°С€РёРІР°РµРјРѕР№ СЃСѓС‰РЅРѕСЃС‚Рё</param>
+    /// <returns>РЎСѓС‰РЅРѕСЃС‚СЊ СЃ СѓРєР°Р·Р°РЅРЅС‹Рј РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј</returns>
+    /// <response code="200">РЎСѓС‰РЅРѕСЃС‚СЊ РЅР°Р№РґРµРЅР°</response>
+    /// <response code="404">РЎСѓС‰РЅРѕСЃС‚СЊ СЃ СѓРєР°Р·Р°РЅРЅС‹Рј РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј РЅРµ РЅР°Р№РґРµРЅР°</response>
+    /// <response code="500">Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° СЃРµСЂРІРµСЂР°</response>
     [HttpGet("{id}")]
     [ProducesResponseType(200)]
     [ProducesResponseType(404)]
