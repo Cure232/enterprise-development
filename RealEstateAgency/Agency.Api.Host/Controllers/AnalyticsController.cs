@@ -9,6 +9,15 @@ namespace Agency.Api.Host.Controllers;
 [ApiController]
 public class AnalyticsController(IAnalyticsService service, ILogger<AnalyticsController> logger) : ControllerBase
 {
+
+    /// <summary>
+    /// Получает список всех продавцов, которые оставили заявки на продажу за указанный период времени
+    /// </summary>
+    /// <param name="from">Начальная дата периода (включительно)</param>
+    /// <param name="to">Конечная дата периода (включительно)</param>
+    /// <returns>Список контрагентов-продавцов, оставивших заявки в указанный период</returns>
+    /// <response code="200">Успешное получение списка продавцов</response>
+    /// <response code="500">Внутренняя ошибка сервера</response>
     [HttpGet("sellers-with-requests-in-period")]
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
@@ -26,6 +35,12 @@ public class AnalyticsController(IAnalyticsService service, ILogger<AnalyticsCon
         }
     }
 
+    /// <summary>
+    /// Получает топ-5 клиентов по количеству заявок на покупку недвижимости
+    /// </summary>
+    /// <returns>Список пяти клиентов с наибольшим количеством заявок на покупку</returns>
+    /// <response code="200">Успешное получение списка топ-5 покупателей</response>
+    /// <response code="500">Внутренняя ошибка сервера</response>
     [HttpGet("top5-buyers-by-request-count")]
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
@@ -43,6 +58,12 @@ public class AnalyticsController(IAnalyticsService service, ILogger<AnalyticsCon
         }
     }
 
+    /// <summary>
+    /// Получает топ-5 клиентов по количеству заявок на продажу недвижимости
+    /// </summary>
+    /// <returns>Список пяти клиентов с наибольшим количеством заявок на продажу</returns>
+    /// <response code="200">Успешное получение списка топ-5 продавцов</response>
+    /// <response code="500">Внутренняя ошибка сервера</response>
     [HttpGet("top5-sellers-by-request-count")]
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
@@ -60,6 +81,12 @@ public class AnalyticsController(IAnalyticsService service, ILogger<AnalyticsCon
         }
     }
 
+    /// <summary>
+    /// Получает статистику по количеству заявок для каждого типа недвижимости
+    /// </summary>
+    /// <returns>Словарь, где ключ - тип недвижимости, значение - количество заявок</returns>
+    /// <response code="200">Успешное получение статистики по типам недвижимости</response>
+    /// <response code="500">Внутренняя ошибка сервера</response>
     [HttpGet("request-count-by-property-type")]
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
@@ -77,6 +104,12 @@ public class AnalyticsController(IAnalyticsService service, ILogger<AnalyticsCon
         }
     }
 
+    /// <summary>
+    /// Получает список клиентов, которые открыли заявки с минимальной стоимостью
+    /// </summary>
+    /// <returns>Список клиентов, чьи заявки имеют минимальную сумму</returns>
+    /// <response code="200">Успешное получение списка клиентов с минимальными заявками</response>
+    /// <response code="500">Внутренняя ошибка сервера</response>
     [HttpGet("clients-with-minimal-request-amount")]
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
@@ -94,6 +127,13 @@ public class AnalyticsController(IAnalyticsService service, ILogger<AnalyticsCon
         }
     }
 
+    /// <summary>
+    /// Получает список всех клиентов, ищущих недвижимость заданного типа (покупка)
+    /// </summary>
+    /// <param name="propertyType">Тип недвижимости для поиска</param>
+    /// <returns>Список клиентов, ищущих недвижимость указанного типа, отсортированный по ФИО</returns>
+    /// <response code="200">Успешное получение списка клиентов по типу недвижимости</response>
+    /// <response code="500">Внутренняя ошибка сервера</response>
     [HttpGet("clients-searching-for-property-type")]
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
@@ -111,6 +151,12 @@ public class AnalyticsController(IAnalyticsService service, ILogger<AnalyticsCon
         }
     }
 
+    /// <summary>
+    /// Получает список всех клиентов, ищущих дома (тип недвижимости House), отсортированный по ФИО
+    /// </summary>
+    /// <returns>Список клиентов, ищущих дома, отсортированный по ФИО в алфавитном порядке</returns>
+    /// <response code="200">Успешное получение списка клиентов, ищущих дома</response>
+    /// <response code="500">Внутренняя ошибка сервера</response>
     [HttpGet("clients-searching-for-houses-ordered-by-fullname")]
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]

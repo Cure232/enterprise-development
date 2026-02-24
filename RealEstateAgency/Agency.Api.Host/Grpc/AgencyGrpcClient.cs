@@ -94,7 +94,7 @@ public class AgencyGrpcClient(
                 await writerTask;
 
                 logger.LogInformation("Finished receiving contract requests for request_id={requestId}", requestId);
-                break;
+                await Task.Delay(TimeSpan.FromSeconds(2), stoppingToken);
             }
             catch (RpcException ex) when (!stoppingToken.IsCancellationRequested)
             {

@@ -6,6 +6,18 @@ namespace Agency.Application.Contracts.RealEstates;
 /// <summary>
 /// DTO объекта недвижимости
 /// </summary>
+/// <param name="Id"></param>
+/// <param name="Type"></param>
+/// <param name="Purpose"></param>
+/// <param name="CadastralNumber"></param>
+/// <param name="Address"></param>
+/// <param name="TotalFloors"></param>
+/// <param name="TotalArea"></param>
+/// <param name="NumberOfRooms"></param>
+/// <param name="CeilingHeight"></param>
+/// <param name="Floor"></param>
+/// <param name="HasEncumbrances"></param>
+/// <param name="EncumbrancesDescription"></param>
 public record RealEstateDto(
     int Id,
     RealEstateType Type,
